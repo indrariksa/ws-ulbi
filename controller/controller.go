@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"github.com/aiteung/musik"
 	"github.com/indrariksa/ws-ulbi/config"
 
 	"github.com/gofiber/fiber/v2"
@@ -27,4 +28,9 @@ func PostWhatsAuthRequest(c *fiber.Ctx) error {
 		return c.JSON(ws)
 	}
 
+}
+
+func Homepage(c *fiber.Ctx) error {
+	ipaddr := musik.GetIPaddress()
+	return c.JSON(ipaddr)
 }
