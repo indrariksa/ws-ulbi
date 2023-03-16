@@ -2,7 +2,7 @@ package controller
 
 import (
 	"github.com/aiteung/musik"
-	"github.com/aiteung/presensi"
+	cek "github.com/aiteung/presensi"
 	"github.com/gofiber/fiber/v2"
 	"github.com/indrariksa/ws-ulbi/config"
 )
@@ -13,6 +13,6 @@ func Homepage(c *fiber.Ctx) error {
 }
 
 func GetPresensi(c *fiber.Ctx) error {
-	ps := presensi.GetPresensiCurrentMonth(config.Ulbimongoconn)
+	ps := cek.GetPresensiCurrentMonth(config.Ulbimongoconn)
 	return c.JSON(ps)
 }
