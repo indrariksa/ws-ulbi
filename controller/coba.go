@@ -3,8 +3,6 @@ package controller
 import (
 	"github.com/aiteung/musik"
 	cek "github.com/aiteung/presensi"
-	"github.com/gofiber/fiber/v2"
-	//bep "github.com/indrariksa/be_presensi"
 	"github.com/indrariksa/ws-ulbi/config"
 )
 
