@@ -16,8 +16,3 @@ func GetPresensi(c *fiber.Ctx) error {
 	ps := cek.GetPresensiCurrentMonth(config.Ulbimongoconn)
 	return c.JSON(ps)
 }
-
-//func GetAllData(c *fiber.Ctx) error {
-//	getip := bep.GetAllPresensiFromStatus("masuk", config.Ulbimongoconn, "presensi")
-//	return c.JSON(getip)
-//}
