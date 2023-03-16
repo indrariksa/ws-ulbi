@@ -36,7 +36,7 @@ func Homepage(c *fiber.Ctx) error {
 	return c.JSON(ipaddr)
 }
 
-func GetPresensiBulanIni(c *fiber.Ctx) error {
+func GetPresensi(c *fiber.Ctx) error {
 	ps := presensi.GetPresensiCurrentMonth(config.Ulbimongoconn)
 	return c.JSON(ps)
 }
