@@ -8,6 +8,14 @@ import (
 	"github.com/indrariksa/ws-ulbi/config"
 )
 
+func Home(c *fiber.Ctx) error {
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"github_repo": "https://github.com/indrariksa/ws-ulbi",
+		"message":     "You are at the root endpoint 😉",
+		"success":     true,
+	})
+}
+
 func Homepage(c *fiber.Ctx) error {
 	ipaddr := musik.GetIPaddress()
 	return c.JSON(ipaddr)
@@ -19,6 +27,6 @@ func GetPresensi(c *fiber.Ctx) error {
 }
 
 func GetAllData(c *fiber.Ctx) error {
-	getip := bep.GetAllPresensiFromStatus("keluar", config.Ulbimongoconn, "presensi")
+	getip := bep.GetAllPresensiFromStatus("masuk", config.Ulbimongoconn, "presensi")
 	return c.JSON(getip)
 }
