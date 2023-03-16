@@ -7,7 +7,7 @@ import (
 	"github.com/whatsauth/whatsauth"
 )
 
-var IteungIPAddress string = os.Getenv("ITEUNGBEV1")
+//var IteungIPAddress string = os.Getenv("ITEUNGBEV1")
 
 var MongoString string = os.Getenv("MONGOSTRING")
 
@@ -20,7 +20,7 @@ var DBUlbimariainfo = atdb.DBInfo{
 
 var DBUlbimongoinfo = atdb.DBInfo{
 	DBString: MongoString,
-	DBName:   "iteung",
+	DBName:   "tes_db",
 }
 
 var Ulbimariaconn = atdb.MariaConnect(DBUlbimariainfo)
