@@ -4,7 +4,7 @@ import (
 	"github.com/aiteung/musik"
 	cek "github.com/aiteung/presensi"
 	"github.com/gofiber/fiber/v2"
-	bep "github.com/indrariksa/be_presensi"
+	//bep "github.com/indrariksa/be_presensi"
 	"github.com/indrariksa/ws-ulbi/config"
 )
 
@@ -18,7 +18,7 @@ func GetPresensi(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-func GetAllData(c *fiber.Ctx) error {
-	getip := bep.GetAllPresensiFromStatus("masuk", config.Ulbimongoconn, "presensi")
-	return c.JSON(getip)
-}
+//func GetAllData(c *fiber.Ctx) error {
+//	getip := bep.GetAllPresensiFromStatus("masuk", config.Ulbimongoconn, "presensi")
+//	return c.JSON(getip)
+//}
