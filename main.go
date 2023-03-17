@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/gofiber/fiber/v2/middleware/logger"
 	"log"
 
 	"github.com/indrariksa/ws-ulbi/config"
@@ -19,6 +20,7 @@ func main() {
 	go whatsauth.RunHub()
 	site := fiber.New(config.Iteung)
 	site.Use(cors.New(config.Cors))
+	site.Use(logger.New())
 	url.Web(site)
 	log.Fatal(site.Listen(musik.Dangdut()))
 }
