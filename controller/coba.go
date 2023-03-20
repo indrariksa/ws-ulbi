@@ -4,7 +4,10 @@ import (
 	"github.com/aiteung/musik"
 	cek "github.com/aiteung/presensi"
 	"github.com/gofiber/fiber/v2"
+	inimodel "github.com/indrariksa/be_presensi/model"
+	inimodul "github.com/indrariksa/be_presensi/module"
 	"github.com/indrariksa/ws-ulbi/config"
+	"net/http"
 )
 
 func Home(c *fiber.Ctx) error {
@@ -23,4 +26,29 @@ func Homepage(c *fiber.Ctx) error {
 func GetPresensi(c *fiber.Ctx) error {
 	ps := cek.GetPresensiCurrentMonth(config.Ulbimongoconn)
 	return c.JSON(ps)
+}
+
+func GetAll(c *fiber.Ctx) error {
+	ps := inimodul.GetAllPresensiFromStatus("masuk", config.Ulbimongoconn, "presensi")
+	return c.JSON(ps)
+}
+
+func InsertData(c *fiber.Ctx) error {
+	db := config.Ulbimongoconn
+	var presensi inimodel.Presensi
+	if err := c.BodyParser(&presensi); err != nil {
+		return err
+	}
+	insertedID := inimodul.InsertPresensi(db, "presensi",
+		presensi.Longitude,
+		presensi.Latitude,
+		presensi.Location,
+		presensi.Phone_number,
+		presensi.Checkin,
+		presensi.Biodata)
+	return c.JSON(map[string]interface{}{
+		"status":      http.StatusOK,
+		"message":     "Data berhasil disimpan.",
+		"inserted_id": insertedID,
+	})
 }
