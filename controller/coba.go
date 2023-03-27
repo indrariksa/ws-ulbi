@@ -37,7 +37,10 @@ func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var presensi inimodel.Presensi
 	if err := c.BodyParser(&presensi); err != nil {
-		return err
+		return c.JSON(map[string]interface{}{
+			"status":  http.StatusInternalServerError,
+			"message": err.Error(),
+		})
 	}
 	insertedID := inimodul.InsertPresensi(db, "presensi",
 		presensi.Longitude,
