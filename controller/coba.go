@@ -1,12 +1,15 @@
 package controller
 
 import (
+	"errors"
+	"fmt"
 	"github.com/aiteung/musik"
 	cek "github.com/aiteung/presensi"
 	"github.com/gofiber/fiber/v2"
 	inimodel "github.com/indrariksa/be_presensi/model"
 	inimodul "github.com/indrariksa/be_presensi/module"
 	"github.com/indrariksa/ws-ulbi/config"
+	"go.mongodb.org/mongo-driver/mongo"
 	"net/http"
 )
 
@@ -39,15 +42,27 @@ func GetAll2(c *fiber.Ctx) error {
 }
 
 func GetPresensiFromPhoneNumber(c *fiber.Ctx) error {
-	queryValue := c.Query("hp")
-	if queryValue == "" {
-		return c.JSON(map[string]interface{}{
+	phoneNumber := c.Params("id")
+	if phoneNumber == "" {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
 			"message": "Parameter Salah!!!",
 		})
 	}
-	ps := inimodul.GetKaryawanFromPhoneNumber(queryValue, config.Ulbimongoconn, "presensi")
 
+	ps, err := inimodul.GetKaryawanFromPhoneNumber(phoneNumber, config.Ulbimongoconn, "presensi")
+	if err != nil {
+		if errors.Is(err, mongo.ErrNoDocuments) {
+			return c.Status(http.StatusNotFound).JSON(fiber.Map{
+				"status":  http.StatusNotFound,
+				"message": fmt.Sprintf("No data found for phone number %s", phoneNumber),
+			})
+		}
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"status":  http.StatusInternalServerError,
+			"message": fmt.Sprintf("Error retrieving data for phone number %s", phoneNumber),
+		})
+	}
 	return c.JSON(ps)
 }
 
@@ -55,7 +70,7 @@ func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var presensi inimodel.Presensi
 	if err := c.BodyParser(&presensi); err != nil {
-		return c.JSON(map[string]interface{}{
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
 			"message": err.Error(),
 		})
@@ -67,7 +82,7 @@ func InsertData(c *fiber.Ctx) error {
 		presensi.Phone_number,
 		presensi.Checkin,
 		presensi.Biodata)
-	return c.JSON(map[string]interface{}{
+	return c.Status(http.StatusOK).JSON(fiber.Map{
 		"status":      http.StatusOK,
 		"message":     "Data berhasil disimpan.",
 		"inserted_id": insertedID,

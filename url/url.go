@@ -14,7 +14,7 @@ func Web(page *fiber.App) {
 	page.Get("/presensi", controller.GetPresensi)
 	page.Get("/tes", controller.GetAll)
 	page.Get("/all", controller.GetAll2)
-	page.Get("/phone", controller.GetPresensiFromPhoneNumber)
+	page.Get("/phone/:id", controller.GetPresensiFromPhoneNumber)
 	page.Post("/ins", controller.InsertData)
 
 }

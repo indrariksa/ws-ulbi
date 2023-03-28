@@ -60,6 +60,8 @@ github.com/gorilla/websocket v1.5.0/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/ad
 github.com/hashicorp/go-uuid v1.0.2/go.mod h1:6SBZvOh/SIDV7/2o3Jml5SYk/TvGqwFJ/bN7x4byOro=
 github.com/indrariksa/be_presensi v0.0.4 h1:aUZc0WofoHtpmYf7MFpzfu6bnDs18gIebqoX4wvhZaE=
 github.com/indrariksa/be_presensi v0.0.4/go.mod h1:j8xrrd410hC8bs6hlnGFhsg82P6esmzg83NwjxdMwbY=
+github.com/indrariksa/be_presensi v0.0.5 h1:5kJyAqPVRN0fw2EbdMU4kBSp4dthyCw0gFKRq2uKi/o=
+github.com/indrariksa/be_presensi v0.0.5/go.mod h1:j8xrrd410hC8bs6hlnGFhsg82P6esmzg83NwjxdMwbY=
 github.com/jcmturner/aescts/v2 v2.0.0/go.mod h1:AiaICIRyfYg35RUkr8yESTqvSy7csK90qZ5xfvvsoNs=
 github.com/jcmturner/dnsutils/v2 v2.0.0/go.mod h1:b0TnjGOvI/n42bZa+hmXL+kFJZsFT7G4t3HTlQ184QM=
 github.com/jcmturner/gofork v1.0.0/go.mod h1:MK8+TM0La+2rjBD4jE12Kj1pCCxK7d2LK/UM3ncEo0o=
