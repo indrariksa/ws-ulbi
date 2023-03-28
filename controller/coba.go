@@ -36,7 +36,7 @@ func GetAll(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
-func GetAll2(c *fiber.Ctx) error {
+func GetAllPresensi(c *fiber.Ctx) error {
 	ps := inimodul.GetAllPresensi(config.Ulbimongoconn, "presensi")
 	return c.JSON(ps)
 }
@@ -46,7 +46,7 @@ func GetPresensiFromPhoneNumber(c *fiber.Ctx) error {
 	if phoneNumber == "" {
 		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
 			"status":  http.StatusInternalServerError,
-			"message": "Parameter Salah!!!",
+			"message": "Wrong parameter",
 		})
 	}
 
