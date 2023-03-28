@@ -38,6 +38,19 @@ func GetAll2(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+func GetPresensiFromPhoneNumber(c *fiber.Ctx) error {
+	queryValue := c.Query("hp")
+	if queryValue == "" {
+		return c.JSON(map[string]interface{}{
+			"status":  http.StatusInternalServerError,
+			"message": "Parameter Salah!!!",
+		})
+	}
+	ps := inimodul.GetKaryawanFromPhoneNumber(queryValue, config.Ulbimongoconn, "presensi")
+
+	return c.JSON(ps)
+}
+
 func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var presensi inimodel.Presensi
