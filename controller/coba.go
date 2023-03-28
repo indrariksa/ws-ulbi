@@ -33,6 +33,11 @@ func GetAll(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+func GetAll2(c *fiber.Ctx) error {
+	ps := inimodul.GetAllPresensi(config.Ulbimongoconn, "presensi")
+	return c.JSON(ps)
+}
+
 func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var presensi inimodel.Presensi

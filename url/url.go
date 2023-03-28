@@ -13,6 +13,7 @@ func Web(page *fiber.App) {
 	page.Get("/", controller.Home)
 	page.Get("/presensi", controller.GetPresensi)
 	page.Get("/tes", controller.GetAll)
+	page.Get("/all", controller.GetAll2)
 	page.Post("/ins", controller.InsertData)
 
 }
