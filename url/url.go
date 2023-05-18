@@ -17,4 +17,5 @@ func Web(page *fiber.App) {
 	page.Get("/tes", controller.GetAll)
 	page.Post("/ins", controller.InsertData)
 	page.Put("/upd/:id", controller.UpdateData)
+	page.Delete("/delete/:id", controller.DeletePresensiByID)
 }
