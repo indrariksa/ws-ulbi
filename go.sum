@@ -89,6 +89,8 @@ github.com/indrariksa/be_presensi v0.0.9 h1:Mph+jvsQcBU/JC0E3z1tWHcjKoS4X4PzP7p8
 github.com/indrariksa/be_presensi v0.0.9/go.mod h1:j8xrrd410hC8bs6hlnGFhsg82P6esmzg83NwjxdMwbY=
 github.com/indrariksa/be_presensi v0.0.11 h1:sPGZrEJlCy+f0cr83ufjsirkWqfEV4+8ypLOTM82Vq8=
 github.com/indrariksa/be_presensi v0.0.11/go.mod h1:j8xrrd410hC8bs6hlnGFhsg82P6esmzg83NwjxdMwbY=
+github.com/indrariksa/be_presensi v0.0.12 h1:o4bHFBUqysHzdLgU1kS9HxERh8vgiZEs7iRbDiO8D/Q=
+github.com/indrariksa/be_presensi v0.0.12/go.mod h1:j8xrrd410hC8bs6hlnGFhsg82P6esmzg83NwjxdMwbY=
 github.com/jcmturner/aescts/v2 v2.0.0/go.mod h1:AiaICIRyfYg35RUkr8yESTqvSy7csK90qZ5xfvvsoNs=
 github.com/jcmturner/dnsutils/v2 v2.0.0/go.mod h1:b0TnjGOvI/n42bZa+hmXL+kFJZsFT7G4t3HTlQ184QM=
 github.com/jcmturner/gofork v1.0.0/go.mod h1:MK8+TM0La+2rjBD4jE12Kj1pCCxK7d2LK/UM3ncEo0o=

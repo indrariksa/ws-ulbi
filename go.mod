@@ -8,7 +8,7 @@ require (
 	github.com/aiteung/presensi v0.0.34
 	github.com/gofiber/fiber/v2 v2.45.0
 	github.com/gofiber/websocket/v2 v2.2.0
-	github.com/indrariksa/be_presensi v0.0.11
+	github.com/indrariksa/be_presensi v0.0.12
 	github.com/whatsauth/whatsauth v0.1.94
 	go.mongodb.org/mongo-driver v1.11.6
 )
