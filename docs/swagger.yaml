@@ -108,6 +108,5 @@ paths:
       tags:
       - Presensi
 schemes:
-- http
 - https
 swagger: "2.0"

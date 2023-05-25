@@ -163,7 +163,7 @@ var SwaggerInfo = &swag.Spec{
 	Version:          "1.0",
 	Host:             "ws-ulbi.herokuapp.com",
 	BasePath:         "/",
-	Schemes:          []string{"http", "https"},
+	Schemes:          []string{"https"},
 	Title:            "TES SWAG",
 	Description:      "This is a sample server.",
 	InfoInstanceName: "swagger",
