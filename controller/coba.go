@@ -37,6 +37,13 @@ func GetAll(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetAllPresensi godoc
+// @Summary Get All Data Presensi.
+// @Description Mengambil semua data presensi.
+// @Tags Presensi
+// @Accept json
+// @Success 200 {object} Presensi
+// @Router /presensi [get]
 func GetAllPresensi(c *fiber.Ctx) error {
 	ps := inimodul.GetAllPresensi(config.Ulbimongoconn, "presensi")
 	return c.JSON(ps)

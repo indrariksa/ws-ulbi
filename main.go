@@ -13,8 +13,21 @@ import (
 	"github.com/indrariksa/ws-ulbi/url"
 
 	"github.com/gofiber/fiber/v2"
+
+	_ "github.com/indrariksa/ws-ulbi/docs"
 )
 
+// @title TES SWAG
+// @version 1.0
+// @description This is a sample server.
+
+// @contact.name API Support
+// @contact.url https://github.com/indrariksa
+// @contact.email indra@ulbi.ac.id
+
+// @host ws-ulbi.herokuapp.com
+// @BasePath /
+// @schemes http https
 func main() {
 	go whatsauth.RunHub()
 	site := fiber.New(config.Iteung)

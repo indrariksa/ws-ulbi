@@ -1,6 +1,7 @@
 package url
 
 import (
+	"github.com/gofiber/swagger"
 	"github.com/indrariksa/ws-ulbi/controller"
 
 	"github.com/gofiber/fiber/v2"
@@ -18,4 +19,5 @@ func Web(page *fiber.App) {
 	page.Post("/ins", controller.InsertData)
 	page.Put("/upd/:id", controller.UpdateData)
 	page.Delete("/delete/:id", controller.DeletePresensiByID)
+	page.Get("/docs/*", swagger.HandlerDefault)
 }
