@@ -42,6 +42,7 @@ func GetAll(c *fiber.Ctx) error {
 // @Description Mengambil semua data presensi.
 // @Tags Presensi
 // @Accept json
+// @Produce json
 // @Success 200 {object} Presensi
 // @Router /presensi [get]
 func GetAllPresensi(c *fiber.Ctx) error {
@@ -49,6 +50,18 @@ func GetAllPresensi(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// GetPresensiID godoc
+// @Summary Get By ID Data Presensi.
+// @Description Ambil per ID data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {object} Presensi
+// @Failure 400
+// @Failure 404
+// @Failure 500
+// @Router /presensi/{id} [get]
 func GetPresensiID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
@@ -107,6 +120,15 @@ func GetPresensiFromPhoneNumber(c *fiber.Ctx) error {
 	return c.JSON(ps)
 }
 
+// InsertData godoc
+// @Summary Insert data presensi.
+// @Description Input data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param request body Presensi true "Payload Body [RAW]"
+// @Success 200 {object} Presensi
+// @Router /ins [post]
 func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 	var presensi inimodel.Presensi
@@ -136,6 +158,16 @@ func InsertData(c *fiber.Ctx) error {
 	})
 }
 
+// UpdateData godoc
+// @Summary Update data presensi.
+// @Description Ubah data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Param request body Presensi true "Payload Body [RAW]"
+// @Success 200 {object} Presensi
+// @Router /upd/{id} [put]
 func UpdateData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
 
@@ -182,6 +214,17 @@ func UpdateData(c *fiber.Ctx) error {
 	})
 }
 
+// DeletePresensiByID godoc
+// @Summary Delete data presensi.
+// @Description Hapus data presensi.
+// @Tags Presensi
+// @Accept json
+// @Produce json
+// @Param id path string true "Masukan ID"
+// @Success 200 {string} string	"OK BOS"
+// @Failure 400
+// @Failure 500
+// @Router /delete/{id} [delete]
 func DeletePresensiByID(c *fiber.Ctx) error {
 	id := c.Params("id")
 	if id == "" {
