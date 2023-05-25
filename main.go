@@ -27,7 +27,7 @@ import (
 
 // @host ws-ulbi.herokuapp.com
 // @BasePath /
-// @schemes http https
+// @schemes https
 func main() {
 	go whatsauth.RunHub()
 	site := fiber.New(config.Iteung)

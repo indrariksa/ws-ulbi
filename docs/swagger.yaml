@@ -1,0 +1,113 @@
+basePath: /
+definitions:
+  controller.JamKerja:
+    properties:
+      durasi:
+        example: 8
+        type: integer
+      gmt:
+        example: 7
+        type: integer
+      hari:
+        example:
+        - Senin
+        - Selasa
+        - Rabu
+        - Kamis
+        - Jumat
+        - Sabtu
+        - Minggu
+        items:
+          type: string
+        type: array
+      jam_keluar:
+        example: "16:00"
+        type: string
+      jam_masuk:
+        example: "08:00"
+        type: string
+      piket_tim:
+        example: Piket Z
+        type: string
+      shift:
+        example: 2
+        type: integer
+    type: object
+  controller.Karyawan:
+    properties:
+      hari_kerja:
+        example:
+        - Senin
+        - Selasa
+        - Rabu
+        - Kamis
+        - Jumat
+        - Sabtu
+        - Minggu
+        items:
+          type: string
+        type: array
+      jabatan:
+        example: Anonymous
+        type: string
+      jam_kerja:
+        items:
+          $ref: '#/definitions/controller.JamKerja'
+        type: array
+      nama:
+        description: ID          primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+        example: Tes Swagger
+        type: string
+      phone_number:
+        example: "08123456789"
+        type: string
+    type: object
+  controller.Presensi:
+    properties:
+      biodata:
+        $ref: '#/definitions/controller.Karyawan'
+      checkin:
+        description: Datetime     primitive.DateTime `bson:"datetime,omitempty" json:"datetime,omitempty"`
+        example: MASUK
+        type: string
+      latitude:
+        example: 123.11
+        type: number
+      location:
+        example: Bandung
+        type: string
+      longitude:
+        description: ID           primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+        example: 123.11
+        type: number
+      phone_number:
+        example: "08123456789"
+        type: string
+    type: object
+host: ws-ulbi.herokuapp.com
+info:
+  contact:
+    email: indra@ulbi.ac.id
+    name: API Support
+    url: https://github.com/indrariksa
+  description: This is a sample server.
+  title: TES SWAG
+  version: "1.0"
+paths:
+  /presensi:
+    get:
+      consumes:
+      - application/json
+      description: Mengambil semua data presensi.
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.Presensi'
+      summary: Get All Data Presensi.
+      tags:
+      - Presensi
+schemes:
+- http
+- https
+swagger: "2.0"
