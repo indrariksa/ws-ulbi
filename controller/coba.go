@@ -128,6 +128,8 @@ func GetPresensiFromPhoneNumber(c *fiber.Ctx) error {
 // @Produce json
 // @Param request body Presensi true "Payload Body [RAW]"
 // @Success 200 {object} Presensi
+// @Failure 400
+// @Failure 500
 // @Router /ins [post]
 func InsertData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
@@ -167,6 +169,8 @@ func InsertData(c *fiber.Ctx) error {
 // @Param id path string true "Masukan ID"
 // @Param request body Presensi true "Payload Body [RAW]"
 // @Success 200 {object} Presensi
+// @Failure 400
+// @Failure 500
 // @Router /upd/{id} [put]
 func UpdateData(c *fiber.Ctx) error {
 	db := config.Ulbimongoconn
