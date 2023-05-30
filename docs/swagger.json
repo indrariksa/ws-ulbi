@@ -5,7 +5,7 @@
     ],
     "swagger": "2.0",
     "info": {
-        "description": "This is a sample server.",
+        "description": "This is a sample swagger for Fiber",
         "title": "TES SWAG",
         "contact": {
             "name": "API Support",

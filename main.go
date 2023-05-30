@@ -19,7 +19,7 @@ import (
 
 // @title TES SWAG
 // @version 1.0
-// @description This is a sample server.
+// @description This is a sample swagger for Fiber
 
 // @contact.name API Support
 // @contact.url https://github.com/indrariksa

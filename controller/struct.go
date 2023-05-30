@@ -1,7 +1,5 @@
 package controller
 
-import "go.mongodb.org/mongo-driver/bson/primitive"
-
 type Karyawan struct {
 	//ID          primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
 	Nama        string     `bson:"nama,omitempty" json:"nama,omitempty" example:"Tes Swagger"`
@@ -33,10 +31,10 @@ type Presensi struct {
 }
 
 type Lokasi struct {
-	ID       primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
-	Nama     string             `bson:"nama,omitempty" json:"nama,omitempty"`
-	Batas    Geometry           `bson:"batas,omitempty" json:"batas,omitempty"`
-	Kategori string             `bson:"kategori,omitempty" json:"kategori,omitempty"`
+	//ID       primitive.ObjectID `bson:"_id,omitempty" json:"_id,omitempty"`
+	Nama     string   `bson:"nama,omitempty" json:"nama,omitempty"`
+	Batas    Geometry `bson:"batas,omitempty" json:"batas,omitempty"`
+	Kategori string   `bson:"kategori,omitempty" json:"kategori,omitempty"`
 }
 
 type Geometry struct {

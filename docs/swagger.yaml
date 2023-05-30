@@ -90,7 +90,7 @@ info:
     email: indra@ulbi.ac.id
     name: API Support
     url: https://github.com/indrariksa
-  description: This is a sample server.
+  description: This is a sample swagger for Fiber
   title: TES SWAG
   version: "1.0"
 paths:
